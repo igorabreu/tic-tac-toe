@@ -1,10 +1,15 @@
 import React from 'react';
-import { HomeWrapper, TextContent } from './styles';
+import MainHeader from '../Header';
+import MachCounter from '../MachCounter';
+import { SafeArea, HomeWrapper, TextContent } from './styles';
 
 const HomeScreen = () => (
-  <HomeWrapper>
-    <TextContent>Gympass</TextContent>
-  </HomeWrapper>
+  <SafeArea>
+    <HomeWrapper>
+      <MainHeader />
+      <MachCounter />
+    </HomeWrapper>
+  </SafeArea>
 );
 
 export default HomeScreen;

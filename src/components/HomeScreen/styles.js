@@ -1,14 +1,17 @@
 import styled from 'styled-components/native';
 
-export const HomeWrapper = styled.SafeAreaView`
+export const SafeArea = styled.SafeAreaView`
+  height: 100%;
+`;
+
+export const HomeWrapper = styled.View`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 100%;
+  padding: 20px;
 `;
 
 export const TextContent = styled.Text`
   font-family: "${props => props.theme.font}";
-  font-size: 30px;
+  font-size: 10px;
 `;
