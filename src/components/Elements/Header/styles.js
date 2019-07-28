@@ -5,7 +5,7 @@ export const HeaderContent = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
+  height: 50px;
   border-bottom-width: 1px;
   border-bottom-color: gray;
 `;
@@ -18,4 +18,5 @@ export const SubTitle = styled.Text`
   color: gray;
   font-size: 11px;
   font-weight: bold;
+  font-family: "${props => props.theme.font}";
 `;

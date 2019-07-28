@@ -9,9 +9,10 @@ export const Counter = styled.View`
 
 export const Number = styled.Text`
   color: gray;
-  font-size: 25px;
+  font-size: 23px;
   font-weight: bold;
-  margin-right: 5px;
+  margin-right: 3px;
+  font-family: "${props => props.theme.font}";
 `;
 
 export const CounterText = styled.Text`
@@ -19,4 +20,5 @@ export const CounterText = styled.Text`
   font-size: 12px;
   font-weight: bold;
   transform: translateY(-3px);
+  font-family: "${props => props.theme.font}";
 `;

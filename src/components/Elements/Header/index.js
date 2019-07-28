@@ -1,5 +1,5 @@
 import React from 'react';
-import gympassLogo from '../../assets/images/logo.png';
+import gympassLogo from '../../../assets/images/logo.png';
 import { HeaderContent, Logo, SubTitle } from './styles';
 
 const MainHeader = () => (

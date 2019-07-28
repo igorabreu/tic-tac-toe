@@ -8,10 +8,5 @@ export const HomeWrapper = styled.View`
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 20px;
-`;
-
-export const TextContent = styled.Text`
-  font-family: "${props => props.theme.font}";
-  font-size: 10px;
+  padding: 4% 8%;
 `;
