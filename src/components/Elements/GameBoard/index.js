@@ -1,8 +1,8 @@
 import React from 'react';
 import { TouchableWithoutFeedback } from 'react-native';
-import { BoardWrapper, Board, SquareOption, ChoosedIcon } from './styles';
 import iconCircle from '../../../assets/images/circle-icon.png';
 import iconX from '../../../assets/images/x-icon.png';
+import { BoardWrapper, Board, SquareOption, ChoosedIcon } from './styles';
 
 const GameBoard = ({ handlePlayerChoice, squareOptions }) => (
   <BoardWrapper>

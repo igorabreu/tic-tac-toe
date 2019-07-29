@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import MainHeader from '../../Elements/Header';
-import MatchCounter from '../../Elements/MatchCounter';
-import GameBoard from '../../Elements/GameBoard';
-import MessageBox from '../../Elements/MessageBox';
-import PlayersInfo from '../../Elements/PlayersInfo';
-import StartButton from '../../Elements/StartButton';
+import _ from 'lodash';
+import MainHeader from '../../elements/Header';
+import MatchCounter from '../../elements/MatchCounter';
+import GameBoard from '../../elements/GameBoard';
+import MessageBox from '../../elements/MessageBox';
+import PlayersInfo from '../../elements/PlayersInfo';
+import StartButton from '../../elements/StartButton';
 import initialSquareOptions from './initalSquareOptions';
 import { SafeArea, HomeWrapper } from './styles';
 
@@ -14,7 +15,7 @@ class HomeScreen extends Component {
     this.state = {
       isGameFinished: true,
       isGameStarted: false,
-      squareOptions: initialSquareOptions,
+      squareOptions: _.cloneDeep(initialSquareOptions),
       turnPlayer: 1,
       pickers: {
         playerOne: [],
@@ -22,6 +23,7 @@ class HomeScreen extends Component {
       },
     };
     this.handlePlayerChoice = this.handlePlayerChoice.bind(this);
+    this.handleStartPress = this.handleStartPress.bind(this);
   }
 
   handlePlayerChoice(index) {
@@ -36,10 +38,22 @@ class HomeScreen extends Component {
 
     newSquareOption[index].pickedBy = turnPlayer;
     newPickers[turnPlayer === 1 ? 'playerOne' : 'playerTwo'].push(index);
+
     this.setState({
       squareOptions: newSquareOption,
       turnPlayer: turnPlayer === 1 ? 2 : 1,
       pickers: newPickers,
+    });
+  }
+
+  handleStartPress() {
+    this.setState({
+      squareOptions: _.cloneDeep(initialSquareOptions),
+      turnPlayer: 1,
+      pickers: {
+        playerOne: [],
+        playerTwo: [],
+      },
     });
   }
 
@@ -55,7 +69,10 @@ class HomeScreen extends Component {
           />
           <MessageBox {...this.state} />
           <PlayersInfo {...this.state} />
-          <StartButton {...this.state} />
+          <StartButton
+            handleStartPress={() => this.handleStartPress()}
+            {...this.state}
+          />
         </HomeWrapper>
       </SafeArea>
     );
