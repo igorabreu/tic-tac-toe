@@ -21,7 +21,7 @@ class HomeScreen extends Component {
         playerOne: [],
         playerTwo: [],
       },
-      matchResult: 'inital',
+      matchResult: 'default',
     };
     this.handlePlayerChoice = this.handlePlayerChoice.bind(this);
     this.handleStartPress = this.handleStartPress.bind(this);

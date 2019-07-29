@@ -2,32 +2,18 @@ import React from 'react';
 import { BoxWrapper, Box, Message } from './styles';
 
 const renderBoxResult = matchResult => {
-  switch (matchResult) {
-    case 'draw':
-      return (
-        <Box>
-          <Message>Draw</Message>
-        </Box>
-      );
-    case 'playerOne':
-      return (
-        <Box>
-          <Message>★ ★ ★ Player 1 Win ★ ★ ★</Message>
-        </Box>
-      );
-    case 'playerTwo':
-      return (
-        <Box>
-          <Message>★ ★ ★ Player 2 Win ★ ★ ★</Message>
-        </Box>
-      );
-    default:
-      return (
-        <Box>
-          <Message>Tap Start Button To Play</Message>
-        </Box>
-      );
-  }
+  const results = {
+    draw: 'Draw',
+    playerOne: '★ ★ ★ Player 1 Win ★ ★ ★',
+    playerTwo: '★ ★ ★ Player 2 Win ★ ★ ★',
+    default: 'Tap Start Button To Play',
+  };
+
+  return (
+    <Box>
+      <Message>{results[matchResult]}</Message>
+    </Box>
+  );
 };
 
 const MessageBox = ({ turnPlayer, matchResult }) => (
