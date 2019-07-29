@@ -19,9 +19,9 @@ const PlayerStatus = ({ playerOne, playerPickers }) => (
       <TeamName>{`${playerOne ? 'Red' : 'Green'} team`}</TeamName>
     </PlayerDescription>
     <RoundsCount>
-      {// creates array of remaining pickers based on number of pickers
+      {// creates array of player remaining pickers based on current number of player pickers
       Array.apply(null, new Array(4 - playerPickers.length)).map(
-        (item, index) => {
+        (remaining, index) => {
           return (
             <CountIcon
               key={index}
@@ -31,7 +31,8 @@ const PlayerStatus = ({ playerOne, playerPickers }) => (
           );
         },
       )}
-      {playerPickers.map((picked, index) => {
+      {// display current player pickers
+      playerPickers.map((picked, index) => {
         return (
           <CountIcon
             key={index}

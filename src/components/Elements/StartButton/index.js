@@ -5,7 +5,7 @@ import { ButtonWrapper, StyledButton, ButtonText } from './styles';
 const StartButton = ({
   isGameStarted = true,
   handleStartPress,
-  isGameFinished = true,
+  isGameFinished,
 }) => (
   <ButtonWrapper>
     <TouchableWithoutFeedback onPress={() => handleStartPress()}>

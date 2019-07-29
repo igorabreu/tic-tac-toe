@@ -13,7 +13,7 @@ class HomeScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isGameFinished: true,
+      isGameFinished: false,
       isGameStarted: false,
       squareOptions: _.cloneDeep(initialSquareOptions),
       turnPlayer: 1,
@@ -21,15 +21,22 @@ class HomeScreen extends Component {
         playerOne: [],
         playerTwo: [],
       },
+      matchResult: '',
     };
     this.handlePlayerChoice = this.handlePlayerChoice.bind(this);
     this.handleStartPress = this.handleStartPress.bind(this);
+    this.setDrawMatch = this.setDrawMatch.bind(this);
   }
 
   handlePlayerChoice(index) {
-    const { squareOptions, turnPlayer, pickers } = this.state;
+    const { squareOptions, turnPlayer, pickers, isGameFinished } = this.state;
     const newSquareOption = [...squareOptions];
     const newPickers = { ...pickers };
+
+    //checks if game is finished
+    if (isGameFinished) {
+      return;
+    }
 
     //checks if square is already picked
     if (newSquareOption[index].pickedBy !== null) {
@@ -38,6 +45,10 @@ class HomeScreen extends Component {
 
     newSquareOption[index].pickedBy = turnPlayer;
     newPickers[turnPlayer === 1 ? 'playerOne' : 'playerTwo'].push(index);
+
+    if (newPickers.playerOne.length + newPickers.playerTwo.length === 8) {
+      this.setDrawMatch();
+    }
 
     this.setState({
       squareOptions: newSquareOption,
@@ -50,10 +61,18 @@ class HomeScreen extends Component {
     this.setState({
       squareOptions: _.cloneDeep(initialSquareOptions),
       turnPlayer: 1,
+      isGameFinished: false,
       pickers: {
         playerOne: [],
         playerTwo: [],
       },
+    });
+  }
+
+  setDrawMatch() {
+    this.setState({
+      isGameFinished: true,
+      matchResult: 'draw',
     });
   }
 
