@@ -7,13 +7,13 @@ import MessageBox from '../../elements/MessageBox';
 import PlayersInfo from '../../elements/PlayersInfo';
 import StartButton from '../../elements/StartButton';
 import initialSquareOptions from './initalSquareOptions';
+import checkIfWin from '../../../utils/checkIfWin';
 import { SafeArea, HomeWrapper } from './styles';
 
 class HomeScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isGameFinished: false,
       isGameStarted: false,
       squareOptions: _.cloneDeep(initialSquareOptions),
       turnPlayer: 1,
@@ -21,20 +21,21 @@ class HomeScreen extends Component {
         playerOne: [],
         playerTwo: [],
       },
-      matchResult: '',
+      matchResult: 'inital',
     };
     this.handlePlayerChoice = this.handlePlayerChoice.bind(this);
     this.handleStartPress = this.handleStartPress.bind(this);
-    this.setDrawMatch = this.setDrawMatch.bind(this);
+    this.setMatchResult = this.setMatchResult.bind(this);
   }
 
   handlePlayerChoice(index) {
-    const { squareOptions, turnPlayer, pickers, isGameFinished } = this.state;
+    const { squareOptions, turnPlayer, pickers, matchResult } = this.state;
     const newSquareOption = [...squareOptions];
     const newPickers = { ...pickers };
+    const currentPlayer = turnPlayer === 1 ? 'playerOne' : 'playerTwo';
 
     //checks if game is finished
-    if (isGameFinished) {
+    if (matchResult) {
       return;
     }
 
@@ -44,10 +45,16 @@ class HomeScreen extends Component {
     }
 
     newSquareOption[index].pickedBy = turnPlayer;
-    newPickers[turnPlayer === 1 ? 'playerOne' : 'playerTwo'].push(index);
+    newPickers[currentPlayer].push(index);
 
+    //checks if current player won
+    if (checkIfWin(newPickers[currentPlayer])) {
+      this.setMatchResult(currentPlayer);
+    }
+
+    //checks if match was draw
     if (newPickers.playerOne.length + newPickers.playerTwo.length === 8) {
-      this.setDrawMatch();
+      this.setMatchResult('draw');
     }
 
     this.setState({
@@ -57,22 +64,21 @@ class HomeScreen extends Component {
     });
   }
 
+  setMatchResult(result) {
+    this.setState({
+      matchResult: result,
+    });
+  }
+
   handleStartPress() {
     this.setState({
       squareOptions: _.cloneDeep(initialSquareOptions),
       turnPlayer: 1,
-      isGameFinished: false,
+      matchResult: null,
       pickers: {
         playerOne: [],
         playerTwo: [],
       },
-    });
-  }
-
-  setDrawMatch() {
-    this.setState({
-      isGameFinished: true,
-      matchResult: 'draw',
     });
   }
 
