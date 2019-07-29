@@ -1,10 +1,11 @@
 import styled from 'styled-components/native';
+import { Dimensions } from 'react-native';
 
 export const PlayerWrapper = styled.View`
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 60px;
+  height: ${Dimensions.get('window').height * 0.07}px;
   justify-content: space-between;
   align-items: center;
 `;

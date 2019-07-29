@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { Dimensions } from 'react-native';
 
 export const ButtonWrapper = styled.View`
   display: flex;
@@ -8,7 +9,7 @@ export const ButtonWrapper = styled.View`
   justify-content: center;
   align-items: center;
   padding: 0px 20px;
-  margin-top: 48px;
+  margin-top: ${Dimensions.get('window').height * 0.025}px;
 `;
 
 export const StyledButton = styled.View`
@@ -26,7 +27,7 @@ export const StyledButton = styled.View`
 `;
 
 export const ButtonText = styled.Text`
-  color: #fff;
+  color: ${props => props.theme.color.white};
   font-size: 13px;
   font-weight: bold;
   text-transform: uppercase;

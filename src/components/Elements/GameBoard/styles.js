@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { Dimensions } from 'react-native';
 
 export const BoardWrapper = styled.View`
   display: flex;
@@ -6,8 +7,9 @@ export const BoardWrapper = styled.View`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 290px;
-  padding: 35px;
+  height: ${Dimensions.get('window').height * 0.4};
+  padding: ${Dimensions.get('window').height * 0.06}px
+    ${Dimensions.get('window').width * 0.15}px;
 `;
 
 export const Board = styled.View`
