@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { Dimensions } from 'react-native';
 
 export const BoxWrapper = styled.View`
   display: flex;
@@ -8,7 +9,7 @@ export const BoxWrapper = styled.View`
   width: 100%;
   height: 40px;
   padding: 0px 20px;
-  margin-bottom: 20px;
+  margin-bottom: ${Dimensions.get('window').height * 0.008}px;
 `;
 
 export const Box = styled.View`

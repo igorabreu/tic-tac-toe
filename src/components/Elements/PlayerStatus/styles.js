@@ -5,7 +5,7 @@ export const PlayerWrapper = styled.View`
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: ${Dimensions.get('window').height * 0.07}px;
+  height: ${Dimensions.get('window').height * 0.1}px;
   justify-content: space-between;
   align-items: center;
 `;

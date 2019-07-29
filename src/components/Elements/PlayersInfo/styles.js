@@ -5,7 +5,7 @@ export const PlayersContainer = styled.View`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: ${Dimensions.get('window').height * 0.15}px;
+  height: ${Dimensions.get('window').height * 0.19}px;
   padding: 0px 20px;
 `;
 

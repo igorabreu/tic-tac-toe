@@ -7,8 +7,8 @@ export const BoardWrapper = styled.View`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: ${Dimensions.get('window').height * 0.4};
-  padding: ${Dimensions.get('window').height * 0.06}px
+  height: ${Dimensions.get('window').height * 0.35};
+  padding: ${Dimensions.get('window').height * 0.04}px
     ${Dimensions.get('window').width * 0.15}px;
 `;
 
