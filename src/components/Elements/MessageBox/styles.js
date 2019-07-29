@@ -14,7 +14,7 @@ export const BoxWrapper = styled.View`
 export const Box = styled.View`
   width: 100%;
   height: 35px;
-  background-color: #e6e6f0;
+  background-color: ${props => (props.isPlayerOne ? '#f48170' : '#8ad4ca')};
   padding: 10px;
   flex-direction: row;
   justify-content: center;
@@ -23,7 +23,7 @@ export const Box = styled.View`
 `;
 
 export const Message = styled.Text`
-  color: gray;
+  color: white;
   font-size: 11px;
   font-weight: bold;
   text-transform: uppercase;

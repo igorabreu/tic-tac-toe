@@ -1,10 +1,12 @@
 import React from 'react';
 import { BoxWrapper, Box, Message } from './styles';
 
-const MessageBox = () => (
+const MessageBox = ({ turnPlayer }) => (
   <BoxWrapper>
-    <Box>
-      <Message>Tap Start Button To Play</Message>
+    <Box isPlayerOne={turnPlayer === 1}>
+      <Message>{`Player ${
+        turnPlayer === 1 ? '1' : '2'
+      } - It's your turn`}</Message>
     </Box>
   </BoxWrapper>
 );

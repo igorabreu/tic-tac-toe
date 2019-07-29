@@ -1,24 +1,35 @@
 import React from 'react';
+import { TouchableWithoutFeedback } from 'react-native';
 import { BoardWrapper, Board, SquareOption, ChoosedIcon } from './styles';
 import iconCircle from '../../../assets/images/circle-icon.png';
 import iconX from '../../../assets/images/x-icon.png';
 
-const GameBoard = () => (
+const GameBoard = ({ handlePlayerChoice, squareOptions }) => (
   <BoardWrapper>
     <Board>
-      <SquareOption borderRight borderBottom>
-        <ChoosedIcon source={iconCircle} resizeMode={'contain'} />
-      </SquareOption>
-      <SquareOption borderRight borderBottom borderLeft>
-        <ChoosedIcon source={iconX} resizeMode={'contain'} />
-      </SquareOption>
-      <SquareOption borderBottom borderLeft />
-      <SquareOption borderTop borderRight borderBottom />
-      <SquareOption borderTop borderRight borderBottom borderLeft />
-      <SquareOption borderTop borderBottom borderLeft />
-      <SquareOption borderTop borderRight />
-      <SquareOption borderTop borderRight borderLeft />
-      <SquareOption borderTop borderLeft />
+      {squareOptions.map((square, index) => {
+        const { layoutBorders, pickedBy } = square;
+        return (
+          <TouchableWithoutFeedback
+            key={index}
+            onPress={() => handlePlayerChoice(index)}
+          >
+            <SquareOption
+              borderTop={layoutBorders[0]}
+              borderRight={layoutBorders[1]}
+              borderBottom={layoutBorders[2]}
+              borderLeft={layoutBorders[3]}
+            >
+              {pickedBy ? (
+                <ChoosedIcon
+                  source={pickedBy === 1 ? iconCircle : iconX}
+                  resizeMode={'contain'}
+                />
+              ) : null}
+            </SquareOption>
+          </TouchableWithoutFeedback>
+        );
+      })}
     </Board>
   </BoardWrapper>
 );

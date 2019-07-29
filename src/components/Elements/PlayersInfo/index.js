@@ -2,11 +2,11 @@ import React from 'react';
 import { PlayersContainer, SeparationBox } from './styles';
 import PlayerStatus from '../PlayerStatus';
 
-const PlayersInfo = () => (
+const PlayersInfo = ({ pickers }) => (
   <PlayersContainer>
-    <PlayerStatus playerOne />
+    <PlayerStatus playerOne playerPickers={pickers.playerOne} />
     <SeparationBox />
-    <PlayerStatus />
+    <PlayerStatus playerPickers={pickers.playerTwo} />
   </PlayersContainer>
 );
 
