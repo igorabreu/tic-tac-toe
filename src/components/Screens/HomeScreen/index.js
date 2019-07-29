@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
+import { incrementCounter } from '../../../store/actions/index';
+import { connect } from 'react-redux';
 import MainHeader from '../../elements/Header';
 import MatchCounter from '../../elements/MatchCounter';
 import GameBoard from '../../elements/GameBoard';
@@ -8,13 +10,13 @@ import PlayersInfo from '../../elements/PlayersInfo';
 import StartButton from '../../elements/StartButton';
 import initialSquareOptions from './initalSquareOptions';
 import checkIfWin from '../../../utils/checkIfWin';
+import { Alert } from 'react-native';
 import { SafeArea, HomeWrapper } from './styles';
 
 class HomeScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isGameStarted: false,
       squareOptions: _.cloneDeep(initialSquareOptions),
       turnPlayer: 1,
       pickers: {
@@ -80,14 +82,16 @@ class HomeScreen extends Component {
         playerTwo: [],
       },
     });
+    this.props.dispatch(incrementCounter(this.props.matchCounter));
   }
 
   render() {
+    const { matchCounter } = this.props;
     return (
       <SafeArea>
         <HomeWrapper>
           <MainHeader />
-          <MatchCounter />
+          <MatchCounter counter={matchCounter} />
           <GameBoard
             handlePlayerChoice={index => this.handlePlayerChoice(index)}
             {...this.state}
@@ -104,4 +108,8 @@ class HomeScreen extends Component {
   }
 }
 
-export default HomeScreen;
+const mapStateToProps = store => ({
+  matchCounter: store.userMatch,
+});
+
+export default connect(mapStateToProps)(HomeScreen);

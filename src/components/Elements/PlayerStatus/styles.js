@@ -16,7 +16,7 @@ export const PlayerDescription = styled.View`
 `;
 
 export const PlayerName = styled.Text`
-  color: black;
+  color: ${props => props.theme.color.veryDarkGray};
   font-size: 15px;
   font-weight: bold;
   text-transform: uppercase;
@@ -24,7 +24,7 @@ export const PlayerName = styled.Text`
 `;
 
 export const TeamName = styled.Text`
-  color: gray;
+  color: ${props => props.theme.color.darkGray};
   font-size: 11px;
   font-weight: bold;
   font-family: "${props => props.theme.font}";

@@ -19,7 +19,10 @@ export const StyledButton = styled.View`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: ${props => (props.isGameFinished ? '#3b83db' : '#c4daf5')};
+  background-color: ${props =>
+    props.isGameFinished
+      ? props.theme.color.blue
+      : props.theme.color.lightBlue};
 `;
 
 export const ButtonText = styled.Text`

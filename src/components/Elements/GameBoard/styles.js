@@ -21,7 +21,10 @@ export const Board = styled.View`
 export const SquareOption = styled.View`
   width: 33%;
   height: 33%;
-  border-color: #c6c6c9;
+  border-color: ${props =>
+    props.matchResult
+      ? props.theme.color.mediumGray
+      : props.theme.color.veryDarkGray};
   display: flex;
   justify-content: center;
   align-items: center;  

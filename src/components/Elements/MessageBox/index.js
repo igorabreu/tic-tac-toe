@@ -1,5 +1,5 @@
 import React from 'react';
-import { BoxWrapper, Box, Message } from './styles';
+import { BoxWrapper, ResultBox, Box, Message } from './styles';
 
 const renderBoxResult = matchResult => {
   const results = {
@@ -10,9 +10,9 @@ const renderBoxResult = matchResult => {
   };
 
   return (
-    <Box>
+    <ResultBox matchResult={matchResult}>
       <Message>{results[matchResult]}</Message>
-    </Box>
+    </ResultBox>
   );
 };
 

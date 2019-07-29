@@ -12,5 +12,5 @@ export const SeparationBox = styled.View`
   width: 100%;
   height: 6px;
   border-radius: 1px;
-  background-color: #e6e6f0;
+  background-color: ${props => props.theme.color.lightGray};
 `;
