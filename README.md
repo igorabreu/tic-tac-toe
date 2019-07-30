@@ -20,7 +20,7 @@ These concepts help to build high scalable applications, easy to maintain and a 
 
 ### Technology
 
-The use of **Styled Components** is aiming to optimize some points of the application style: share of variables between components, conditional rendering based on components props, beyond other benefits of use the same language on style and elements structure. ([Article: benefits of use of Styled Components](<[https://medium.com/building-crowdriff/styled-components-to-use-or-not-to-use-a6bb4a7ffc21](https://medium.com/building-crowdriff/styled-components-to-use-or-not-to-use-a6bb4a7ffc21)>))
+The use of **Styled Components** is aiming to optimize some points of the application style: share of variables between components, conditional rendering based on components props, beyond other benefits of use the same language on style and elements structure. ([Article: benefits of use of Styled Components](https://medium.com/building-crowdriff/styled-components-to-use-or-not-to-use-a6bb4a7ffc21)
 
 ### React Components Logic
 
