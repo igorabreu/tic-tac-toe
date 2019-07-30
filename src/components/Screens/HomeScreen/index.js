@@ -8,7 +8,7 @@ import GameBoard from '../../elements/GameBoard';
 import MessageBox from '../../elements/MessageBox';
 import PlayersInfo from '../../elements/PlayersInfo';
 import StartButton from '../../elements/StartButton';
-import initialSquareOptions from './initalSquareOptions';
+import initialSquareOptions from '../../../utils/initalSquareOptions';
 import checkIfWin from '../../../utils/checkIfWin';
 import { SafeArea, HomeWrapper } from './styles';
 

@@ -4,6 +4,6 @@ import MessageBox from '../';
 import renderer from 'react-test-renderer';
 
 it('renders correctly', () => {
-  const home = renderer.create(<MessageBox />).toJSON();
-  expect(home).toMatchSnapshot();
+  const messageBox = renderer.create(<MessageBox />).toJSON();
+  expect(messageBox).toMatchSnapshot();
 });
