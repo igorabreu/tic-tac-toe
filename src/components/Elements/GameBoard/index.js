@@ -3,8 +3,14 @@ import { TouchableWithoutFeedback } from 'react-native';
 import iconCircle from '../../../assets/images/circle-icon.png';
 import iconX from '../../../assets/images/x-icon.png';
 import { BoardWrapper, Board, SquareOption, ChoosedIcon } from './styles';
+import CrossLine from '../CrossLine';
 
-const GameBoard = ({ handlePlayerChoice, squareOptions, matchResult }) => (
+const GameBoard = ({
+  handlePlayerChoice,
+  squareOptions,
+  matchResult,
+  crossLine,
+}) => (
   <BoardWrapper>
     <Board>
       {squareOptions.map((square, index) => {
@@ -31,6 +37,9 @@ const GameBoard = ({ handlePlayerChoice, squareOptions, matchResult }) => (
           </TouchableWithoutFeedback>
         );
       })}
+      {matchResult === 'playerOne' || matchResult === 'playerTwo' ? (
+        <CrossLine matchResult={matchResult} result={crossLine} />
+      ) : null}
     </Board>
   </BoardWrapper>
 );

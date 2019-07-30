@@ -10,7 +10,6 @@ import PlayersInfo from '../../elements/PlayersInfo';
 import StartButton from '../../elements/StartButton';
 import initialSquareOptions from './initalSquareOptions';
 import checkIfWin from '../../../utils/checkIfWin';
-import { Alert } from 'react-native';
 import { SafeArea, HomeWrapper } from './styles';
 
 class HomeScreen extends Component {
@@ -24,10 +23,12 @@ class HomeScreen extends Component {
         playerTwo: [],
       },
       matchResult: 'default',
+      crossLine: null,
     };
     this.handlePlayerChoice = this.handlePlayerChoice.bind(this);
     this.handleStartPress = this.handleStartPress.bind(this);
     this.setMatchResult = this.setMatchResult.bind(this);
+    this.setCrossLine = this.setCrossLine.bind(this);
   }
 
   handlePlayerChoice(index) {
@@ -50,8 +51,10 @@ class HomeScreen extends Component {
     newPickers[currentPlayer].push(index);
 
     //checks if current player won
-    if (checkIfWin(newPickers[currentPlayer])) {
+    if (checkIfWin(newPickers[currentPlayer]).isWinner) {
       this.setMatchResult(currentPlayer);
+      this.setCrossLine(checkIfWin(newPickers[currentPlayer]).case);
+      return;
     }
 
     //checks if match was draw
@@ -63,6 +66,12 @@ class HomeScreen extends Component {
       squareOptions: newSquareOption,
       turnPlayer: turnPlayer === 1 ? 2 : 1,
       pickers: newPickers,
+    });
+  }
+
+  setCrossLine(crossLine) {
+    this.setState({
+      crossLine,
     });
   }
 

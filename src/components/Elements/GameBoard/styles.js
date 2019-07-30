@@ -7,17 +7,15 @@ export const BoardWrapper = styled.View`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: ${Dimensions.get('window').height * 0.35};
-  padding: ${Dimensions.get('window').height * 0.04}px
-    ${Dimensions.get('window').width * 0.15}px;
+  height: ${Dimensions.get('window').height * 0.38};
 `;
 
 export const Board = styled.View`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
-  height: 100%;
+  width: ${Dimensions.get('window').height * 0.3}px;
+  height: ${Dimensions.get('window').height * 0.3}px;
 `;
 
 export const SquareOption = styled.View`
@@ -32,22 +30,22 @@ export const SquareOption = styled.View`
   align-items: center;  
   ${props =>
     props.borderLeft
-      ? `border-left-width: 6px;
+      ? `border-left-width: 7px;
         `
       : ''}
   ${props =>
     props.borderTop
-      ? `border-top-width: 6px;
+      ? `border-top-width: 7px;
         `
       : ''}
   ${props =>
     props.borderBottom
-      ? `border-bottom-width: 6px;
+      ? `border-bottom-width: 7px;
         `
       : ''}
   ${props =>
     props.borderRight
-      ? `border-right-width: 6px;
+      ? `border-right-width: 7px;
         `
       : ''}
 `;

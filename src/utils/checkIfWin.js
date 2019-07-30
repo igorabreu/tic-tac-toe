@@ -1,16 +1,20 @@
 import winningCases from './winningCases';
 
 const checkIfWin = arrayOfPickers => {
-  let isWinner = false;
+  let result = {
+    isWinner: false,
+    case: null,
+  };
   winningCases.map((winningCase, index) => {
-    if (isWinner) {
+    if (result.isWinner) {
       return;
     }
     if (winningCase.every(val => arrayOfPickers.includes(val))) {
-      return (isWinner = true);
+      result.isWinner = true;
+      result.case = winningCase;
     }
   });
-  return isWinner;
+  return result;
 };
 
 export default checkIfWin;
