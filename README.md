@@ -4,7 +4,7 @@ Tic Tac Toe game mobile application built for iOS.
 
 Built with:
 
-- [React Native](<[https://github.com/facebook/react-native](https://github.com/facebook/react-native)>)
+- [React Native](https://github.com/facebook/react-native)
 - [Styled Components](https://www.styled-components.com/docs/api#styling-components)
 - [Webpack](https://webpack.js.org/)
 - [Redux](https://redux.js.org/)
