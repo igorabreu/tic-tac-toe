@@ -5,7 +5,6 @@
   "scripts": {
     "start": "react-native start",
     "start-ios": "react-native run-ios",
-    "test": "jest",
     "lint": "eslint ."
   },
   "dependencies": {
