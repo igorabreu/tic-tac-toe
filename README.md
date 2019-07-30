@@ -1,6 +1,6 @@
-## Tic Tac Toe Project
+## Tic-Tac-Toe Project
 
-Tic Tac Toe game mobile application.
+Tic-Tac-Toe game mobile application.
 
 Built with:
 
